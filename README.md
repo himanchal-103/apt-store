@@ -34,12 +34,12 @@ Frontend
 │   ├── accounts
 │   │   ├── admin.py
 │   │   ├── apps.py
-│   │   ├── manager.py
-│   │   ├── models.py
-│   │   ├── permissions.py
+│   │   ├── manager.py                # custom user manager
+│   │   ├── models.py                 # custom user model
+│   │   ├── permissions.py            # permissions
 │   │   ├── serializers.py
 │   │   ├── urls.py
-│   │   └── views.py
+│   │   └── views.py                  # auth endpoint business logic
 │   ├── backend
 │   │   ├── asgi.py
 │   │   ├── settings.py
@@ -47,27 +47,27 @@ Frontend
 │   ├── orders
 │   │   ├── admin.py
 │   │   ├── apps.py
-│   │   ├── consumers.py
-│   │   ├── models.py
-│   │   ├── routing.py
+│   │   ├── consumers.py                # consumer class for websocket connection
+│   │   ├── models.py                   # order model
+│   │   ├── routing.py                  # endpoint for websocket connection
 │   │   ├── serializers.py
 │   │   ├── urls.py
-│   │   └── views.py
+│   │   └── views.py                    # endpoints for order CRUD operation
 │   └── manage.py
 ├── frontend
 │   ├── src
 │   │   ├── api
-│   │   │   ├── client.js
-│   │   │   └── orders.js
+│   │   │   ├── client.js                  # Axios instance
+│   │   │   └── orders.js                  # Orders API calls
 │   │   ├── components
 │   │   │   ├── ProtectedRoute.jsx
 │   │   │   ├── StatusBadge.jsx
 │   │   │   └── Topbar.jsx
 │   │   ├── context
-│   │   │   ├── AuthContext.jsx
+│   │   │   ├── AuthContext.jsx            # Global auth state, login/logout/register functions
 │   │   │   └── ToastContext.jsx
 │   │   ├── hooks
-│   │   │   └── useOrderSocket.js
+│   │   │   └── useOrderSocket.js          # WebSocket connection lifecycle and message handling
 │   │   ├── pages
 │   │   │   ├── AuthPage.css
 │   │   │   ├── AuthPage.jsx
@@ -76,10 +76,10 @@ Frontend
 │   │   │   ├── UserDashboard.css
 │   │   │   └── UserDashboard.jsx
 │   │   ├── App.jsx
-│   │   ├── index.css
+│   │   ├── index.css                      # Global design system, CSS variables, shared styles
 │   │   └── main.jsx
-│   ├── index.html
-│   ├── package.json
+│   ├── index.html                        # app entry point
+│   ├── package.json                      # project metadata and dependencies
 │   └── vite.config.js
 └── requirements.txt
 ```
