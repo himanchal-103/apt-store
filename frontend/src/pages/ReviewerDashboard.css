@@ -1,0 +1,161 @@
+.reviewer-main {
+  flex: 1;
+  padding: 28px 32px;
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Stats */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+@media (max-width: 700px) {
+  .stats-row { grid-template-columns: repeat(2, 1fr); }
+  .reviewer-main { padding: 20px 16px; }
+}
+
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: border-color var(--transition);
+}
+
+.stat-card:hover { border-color: var(--border-bright); }
+
+.stat-count {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.stat-pending  .stat-count { color: var(--amber); }
+.stat-shipped  .stat-count { color: var(--blue); }
+.stat-delivered .stat-count { color: var(--green); }
+.stat-cancelled .stat-count { color: var(--red); }
+
+/* Header */
+.reviewer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.filter-tabs {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.filter-tab {
+  padding: 7px 14px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.filter-tab:hover { border-color: var(--border-bright); color: var(--text); }
+.filter-tab.active { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
+
+/* Grid */
+.order-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+.order-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 18px;
+  text-align: left;
+  cursor: pointer;
+  transition: all var(--transition);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  animation: fadeUp 0.3s ease both;
+}
+
+.order-card:hover { border-color: var(--border-bright); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+.order-card.selected { border-color: var(--accent); background: var(--bg-elevated); box-shadow: 0 0 0 3px var(--accent-dim); }
+
+.order-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.order-card-id { font-size: 11px; color: var(--text-faint); }
+.order-card-name { font-size: 15px; font-weight: 500; color: var(--text); }
+.order-card-user { font-size: 11px; color: var(--text-faint); }
+
+/* Inline editor */
+.order-inline-editor {
+  margin-top: 10px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.status-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.status-option {
+  padding: 7px 10px;
+  border-radius: var(--radius);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all var(--transition);
+  text-transform: capitalize;
+}
+
+.status-option:hover { border-color: var(--border-bright); color: var(--text); }
+
+.status-option-pending.chosen  { background: var(--amber-dim); color: var(--amber); border-color: rgba(245,158,11,0.4); }
+.status-option-shipped.chosen  { background: var(--blue-dim);  color: var(--blue);  border-color: rgba(96,165,250,0.4); }
+.status-option-delivered.chosen { background: var(--green-dim); color: var(--green); border-color: rgba(62,207,142,0.4); }
+.status-option-cancelled.chosen { background: var(--red-dim);  color: var(--red);   border-color: rgba(239,68,68,0.4); }
+
+.editor-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
